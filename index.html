@@ -1,65 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Laundry Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Laundry</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- ================= NAVBAR ================= -->
+
 <header>
-  <h2>Laundry</h2>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">About Us</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Revitalize Your Clothes with Expert Laundry Services!</h1>
-    <p>Premium quality service at affordable price</p>
-    <button onclick="openForm()">Book a Service Today</button>
-  </div>
+<nav class="navbar">
 
-  <div class="hero-img">
-    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="Laundry">
-  </div>
-</section>
+<div class="logo">
 
-<!-- Stats -->
-<section class="stats">
-  <div>15+ Laundry Services</div>
-  <div>240+ Happy Customers</div>
-  <div>2+ Years Experience</div>
-</section>
+<img src="https://tse4.mm.bing.net/th/id/OIP.p5gL1AEmTIhh7vTruh7hYQHaH0?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="logo">
 
-<!-- Booking Modal -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span onclick="closeForm()" class="close">&times;</span>
-    <h2>Book Laundry Service</h2>
+<h2>Logo</h2>
 
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="email" id="email" placeholder="Your Email">
-    <button onclick="sendMail()">Book Now</button>
-  </div>
 </div>
 
-<!-- JS -->
-<script src="script.js"></script>
+<ul class="nav-links">
+
+<li><a href="#hero">Home</a></li>
+
+<li><a href="#services">Services</a></li>
+
+<li><a href="#quality">Quality</a></li>
+
+<li><a href="#contact">Contact Us</a></li>
+
+</ul>
+
+<div class="username">
+
+<span>Hello, Sonal</span>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="hero">
+
+<div class="hero-left">
+
+<h1>Revitalize Your Clothes with Expert Laundry Services!</h1>
+
+<p>
+
+From premium dry cleaning to swift wash and fold,
+
+we deliver care and convenience.
+
+Schedule a pickup today and rediscover
+
+the freshness of your garments.
+
+</p>
+
+<button id="bookNowBtn">
+
+Book a Service Today
+
+</button>
+
+</div>
+
+<div class="hero-right">
+
+<img src="https://th.bing.com/th/id/OIP.h6S4WNWc8oq4hp4DIRhvSAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+</div>
+
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section class="achievement">
+
+<div class="box">
+
+<h2>15+</h2>
+
+<p>Laundry Services</p>
+
+</div>
+
+<div class="box">
+
+<h2>240+</h2>
+
+<p>Happy Customers</p>
+
+</div>
+
+<div class="box">
+
+<h2>2+</h2>
+
+<p>Years Experience</p>
+
+</div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services" id="services">
+
+<h2>Our Services</h2>
+
+<p class="service-subtitle">
+
+Click "Add Item" to include a service in your booking cart.
+
+</p>
+
+<div id="serviceContainer" class="service-container">
+
+<!-- JavaScript will generate service cards here -->
+
+</div>
+
+</section>
+
+<!-- ================= BOOKING ================= -->
+
+<section class="booking-section" id="booking">
+
+<div class="booking-left">
+
+<h2>Book Your Laundry Service</h2>
+
+<p>
+
+Select services from above, then fill in your
+
+details to complete your booking.
+
+</p>
+
+</div>
+
+<div class="booking-right">
+
+<h3>Your Cart</h3>
+
+<div id="cartItems">
+
+<p>No items added.</p>
+
+</div>
+
+<h2>
+
+Total : ₹<span id="totalPrice">0</span>
+
+</h2>
+
+<form id="bookingForm">
+
+<input
+type="text"
+id="name"
+placeholder="Enter Full Name"
+required
+>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email"
+required
+>
+
+<input
+type="tel"
+id="phone"
+placeholder="Enter Phone Number"
+required
+>
+
+<input
+type="text"
+id="address"
+placeholder="Enter Address"
+required
+>
+
+<button type="submit">
+
+Book Now
+
+</button>
+
+</form>
+
+<div id="thankYouMessage"></div>
+
+</div>
+
+</section>
+    <!-- ================= QUALITY SECTION ================= -->
+
+    <section class="quality-section" id="quality">
+
+        <div class="quality-left">
+            <img src="" alt="Laundry Quality">
+        </div>
+
+        <div class="quality-right">
+
+            <h2>Why Choose Our Laundry Service?</h2>
+
+            <p>
+                We provide professional laundry services using high-quality
+                equipment and premium detergents. Our experienced staff ensures
+                that every garment receives the care it deserves.
+            </p>
+
+            <div class="quality-box">
+
+                <div class="quality-item">
+                    <h3>✔ Premium Cleaning</h3>
+                    <p>
+                        Advanced cleaning process for delicate and everyday clothes.
+                    </p>
+                </div>
+
+                <div class="quality-item">
+                    <h3>✔ Fast Delivery</h3>
+                    <p>
+                        Same-day and next-day delivery available for selected areas.
+                    </p>
+                </div>
+
+                <div class="quality-item">
+                    <h3>✔ Affordable Pricing</h3>
+                    <p>
+                        Best prices with no hidden charges.
+                    </p>
+                </div>
+
+                <div class="quality-item">
+                    <h3>✔ 100% Customer Satisfaction</h3>
+                    <p>
+                        Thousands of satisfied customers trust our services.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter">
+
+        <h2>Subscribe to Our Newsletter</h2>
+
+        <p>
+            Stay updated with our latest offers, discounts and laundry tips.
+        </p>
+
+        <form id="newsletterForm">
+
+            <input
+                type="text"
+                placeholder="Enter Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                placeholder="Enter Your Email"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </section>
+    <footer id="contact">
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+
+                <h2>Quick Laundry</h2>
+
+                <p>
+                    Professional laundry and dry-cleaning services with affordable
+                    prices and fast delivery.
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Important Links</h3>
+
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#quality">Quality</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <p>Email : support@quicklaundry.com</p>
+                <p>Phone : +91 9876543210</p>
+                <p>Address : Mumbai, Maharashtra</p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>Follow Us</h3>
+
+                <div class="social-links">
+
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Quick Laundry. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
